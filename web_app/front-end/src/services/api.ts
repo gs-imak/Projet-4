@@ -14,7 +14,7 @@ const apiFetch = async (endpoint: string, options: RequestInit = {}) => {
     const headers = {
       "Content-Type": "application/json",
       ...(token ? { Authorization: `Bearer ${token}` } : {}),
-      ...options.headers, // Include any custom headers passed in options
+      ...options.headers,
     };
 
     const response = await fetch(`${BASE_URL}${endpoint}`, {
@@ -63,5 +63,3 @@ export const queryHadoop = async (filePath: string) => {
     body: JSON.stringify({ file_path: filePath }),
   });
 };
-
-// Add more API functions as needed
